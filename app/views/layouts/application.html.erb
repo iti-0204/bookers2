@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    
+
     <script src="https://kit.fontawesome.com/78d47199b8.js" crossorigin="anonymous"></script>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body class="d-flex flex-column vh-100">
+  <body class="d-flex text-body flex-column vh-100">
     <header class="shadow-sm">
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
@@ -24,20 +24,29 @@
             <ul class="navbar-nav ml-auto">
             <% if user_signed_in? %>
             <li class="nav-item">
-              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-link text-dark' %>
+              <%= link_to 'Home', user_path(current_user.id), class: 'nav-link text-dark' %>
             </li>
             <li class="nav-item">
-              <%= link_to '投稿フォーム', new_book_path, class: 'nav-link text-dark' %>
+              <%= link_to 'Users', users_path, class: 'nav-link text-dark' %>
             </li>
             <li class="nav-item">
-              <%= link_to 'マイページ', user_path(current_user.id), class: 'nav-link text-dark' %>
+              <%= link_to 'Books', books_path, class: 'nav-link text-dark' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: 'nav-link text-dark' %>
             </li>
             <% else %>
             <li class="nav-item">
-              <%= link_to "新規登録", new_user_registration_path, class: 'nav-link text-dark' %>
+              <%= link_to 'Home', root_path, class: 'nav-link text-dark' %>
             </li>
             <li class="nav-item">
-              <%= link_to "ログイン", new_user_session_path, class: 'nav-link text-dark' %>
+              <%= link_to 'About', about_path, class: 'nav-link text-dark' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Sign up", new_user_registration_path, class: 'nav-link text-dark' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Log in", new_user_session_path, class: 'nav-link text-dark' %>
             </li>
             <% end %>
             </ul>
@@ -48,23 +57,10 @@
     <main class="mb-auto">
     <%= yield %>
     </main>
-    <footer class="bg-dark text-white pt-5 pb-4">
+    <footer class="mt-5">
       <div class="container">
-        <div class="row no-gutters">
-          <div class="col-md-4">
-            <p>善良な市民同士で無差別に食欲を煽るSNS</p>
-          </div>
-          <div class="col-md-8">
-            <h6 class="text-white mt-2 mb-3">Link</h6>
-            <ul class="p-0 list-unstyled">
-              <li>
-                <a href="" title="About" class="text-white-50">会社概要</a>
-              </li>
-              <li>
-                <a href="" title="License informations" class="text-white-50">プライバシーポリシー</a>
-              </li>
-            </ul>
-          </div>
+        <div class="row no-gutters justify-content-center">
+          <p>CopyRight Infratop.inc</p>
         </div>
       </div>
     </footer>
