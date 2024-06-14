@@ -24,29 +24,53 @@
             <ul class="navbar-nav ml-auto">
             <% if user_signed_in? %>
             <li class="nav-item">
-              <%= link_to 'Home', user_path(current_user.id), class: 'nav-link text-dark' %>
+              <%= link_to user_path(current_user.id), class: 'nav-link text-dark d-flex align-items-center' do %>
+                <i class="fa-solid fa-house"></i>
+                <p class="mb-0">Home</p>
+              <% end %>
             </li>
             <li class="nav-item">
-              <%= link_to 'Users', users_path, class: 'nav-link text-dark' %>
+              <%= link_to user_path, class: 'nav-link text-dark d-flex align-items-center' do %>
+                <i class="fa-solid fa-users"></i>
+                <p class="mb-0">Users</p>
+              <% end %>
             </li>
             <li class="nav-item">
-              <%= link_to 'Books', books_path, class: 'nav-link text-dark' %>
+              <%= link_to books_path, class: 'nav-link text-dark d-flex align-items-center' do %>
+                <i class="fa-solid fa-book-open"></i>
+                <p class="mb-0">Books</p>
+              <% end %>
             </li>
             <li class="nav-item">
-              <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: 'nav-link text-dark' %>
+              <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link text-dark d-flex align-items-center' do %>
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <p class="mb-0">Log out</p>
+              <% end %>
             </li>
             <% else %>
             <li class="nav-item">
-              <%= link_to 'Home', root_path, class: 'nav-link text-dark' %>
+              <%= link_to root_path, class: 'nav-link text-dark d-flex align-items-center' do %>
+                <i class="fa-solid fa-house"></i>
+                <p class="mb-0">Home</p>
+              <% end %>
             </li>
             <li class="nav-item">
-              <%= link_to 'About', about_path, class: 'nav-link text-dark' %>
+              <%= link_to about_path, class: 'nav-link text-dark d-flex align-items-center' do %>
+                <i class="fa-solid fa-link"></i>
+                <p class="mb-0">About</p>
+              <% end %>
             </li>
             <li class="nav-item">
-              <%= link_to "Sign up", new_user_registration_path, class: 'nav-link text-dark' %>
+              <%= link_to new_user_registration_path, class: 'nav-link text-dark d-flex align-items-center' do %>
+                <i class="fa-solid fa-user-plus"></i>
+                <p class="mb-0">About</p>
+              <% end %>
             </li>
             <li class="nav-item">
-              <%= link_to "Log in", new_user_session_path, class: 'nav-link text-dark' %>
+              <%= link_to  new_user_session_path, class: 'nav-link text-dark d-flex align-items-center' do %>
+                <i class="fa-solid fa-right-to-bracket"></i>
+                <p class="mb-0">Log in</p>
+              <% end %>
             </li>
             <% end %>
             </ul>
@@ -55,7 +79,23 @@
       </nav>
     </header>
     <main class="mb-auto">
-    <%= yield %>
+      <% if user_signed_in? %>
+        <div class="container px-0">
+          <div class="row">
+            <div class="col-md-3">
+              <p>あいうえお</p>
+            </div>
+            <div class="col-md-8 offset-md-1">
+              <%= yield %>
+            </div>
+          </div>
+        </div>
+      <% else %>
+        <div class="container px-0">
+          <%= yield %>
+        </div>
+      <% end %>
+
     </main>
     <footer class="mt-5">
       <div class="container">
