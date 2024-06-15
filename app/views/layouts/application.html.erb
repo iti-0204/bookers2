@@ -63,7 +63,7 @@
             <li class="nav-item">
               <%= link_to new_user_registration_path, class: 'nav-link text-dark d-flex align-items-center' do %>
                 <i class="fa-solid fa-user-plus"></i>
-                <p class="mb-0">About</p>
+                <p class="mb-0">Sign up</p>
               <% end %>
             </li>
             <li class="nav-item">
@@ -80,22 +80,11 @@
     </header>
     <% if user_signed_in? %>
       <main class="mb-auto">
-        <div class="container px-0">
-          <div class="row">
-            <div class="col-md-3">
-              <p>あいうえお</p>
-            </div>
-            <div class="col-md-8 offset-md-1">
-              <%= yield %>
-            </div>
-          </div>
-        </div>
+        <%= yield %>
       </main>
     <% else %>
       <main>
-        <div class="container px-0">
-          <%= yield %>
-        </div>
+        <%= yield %>
       </main>
     <% end %>
 
