@@ -30,7 +30,7 @@
               <% end %>
             </li>
             <li class="nav-item">
-              <%= link_to user_path, class: 'nav-link text-dark d-flex align-items-center' do %>
+              <%= link_to users_path, class: 'nav-link text-dark d-flex align-items-center' do %>
                 <i class="fa-solid fa-users"></i>
                 <p class="mb-0">Users</p>
               <% end %>
@@ -78,8 +78,8 @@
         </div>
       </nav>
     </header>
-    <main class="mb-auto">
-      <% if user_signed_in? %>
+    <% if user_signed_in? %>
+      <main class="mb-auto">
         <div class="container px-0">
           <div class="row">
             <div class="col-md-3">
@@ -90,13 +90,16 @@
             </div>
           </div>
         </div>
-      <% else %>
+      </main>
+    <% else %>
+      <main>
         <div class="container px-0">
           <%= yield %>
         </div>
-      <% end %>
+      </main>
+    <% end %>
 
-    </main>
+
     <footer class="mt-5">
       <div class="container">
         <div class="row no-gutters justify-content-center">
