@@ -7,32 +7,7 @@
 
     <div class="col-md-8 offset-md-1">
       <h2>Books</h2>
-      <table class="table table-hover">
-        <thead>
-          <tr>
-            <th scope="col"></th>
-            <th scope="col">Title</th>
-            <th scope="col">Opinion</th>
-          </tr>
-        </thead>
-        <% @books.each do |book| %>
-          <tbody>
-            <tr>
-              <td>
-                <%= link_to user_path(book.user.id) do%>
-                  <%= image_tag @user.get_profile_image(100,100) %>
-                <% end %>
-              </td>
-              <td>
-                <%= link_to book_path(book.id) do %>
-                  <%= book.title %>
-                <% end %>
-              </td>
-              <td><%= book.body %></td>
-            </tr>
-          </tbody>
-        <% end %>
-        </table>
+      <%= render 'books/books_list', user: @user , books: @books%>
     </div>
   </div>
 </div>
