@@ -10,8 +10,17 @@
       <table class="table table-hover">
         <tbody>
           <tr>
-            <td><%= image_tag @user.get_profile_image(100,100)%></td>
-            <td><%= @target_book.title %></td>
+            <td>
+              <%= link_to edit_book_path(@target_book.id), class: 'd-flex flex-column' do%>
+                <%= image_tag @user.get_profile_image(100,100)%>
+                <%= @target_book.user.name %>
+              <% end %>
+            </td>
+            <td>
+              <%= link_to book_path(@target_book.id) do %>
+                <%= @target_book.title %>
+              <% end %>
+            </td>
             <td><%= @target_book.body %></td>
             <td>
               <%= link_to edit_book_path(@target_book.id), class: 'btn btn-success col' do %>
