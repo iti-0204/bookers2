@@ -11,8 +11,8 @@
         <tbody>
           <tr>
             <td>
-              <%= link_to edit_book_path(@target_book.id), class: 'd-flex flex-column' do%>
-                <%= image_tag @user.get_profile_image(100,100)%>
+              <%= link_to user_path(@target_book.user.id), class: 'd-flex flex-column' do%>
+                <%= image_tag @user.get_profile_image(100,100) %>
                 <%= @target_book.user.name %>
               <% end %>
             </td>
