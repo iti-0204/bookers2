@@ -13,9 +13,9 @@
 
   <body class="d-flex text-body flex-column vh-100">
     <header class="shadow-sm">
-      <nav class="navbar navbar-expand-lg navbar-light">
+      <nav class="navbar navbar-expand-lg navbar-light bg-dark text-light">
         <div class="container">
-          <a class="navbar-brand p-3" href="/">Bookers</a>
+          <a class="navbar-brand p-0 text-light" href="/">Bookers</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -24,50 +24,50 @@
             <ul class="navbar-nav ml-auto">
             <% if user_signed_in? %>
             <li class="nav-item">
-              <%= link_to user_path(current_user.id), class: 'nav-link text-dark d-flex align-items-center' do %>
+              <%= link_to user_path(current_user.id), class: 'nav-link text-light d-flex align-items-center' do %>
                 <i class="fa-solid fa-house"></i>
                 <p class="mb-0">Home</p>
               <% end %>
             </li>
             <li class="nav-item">
-              <%= link_to users_path, class: 'nav-link text-dark d-flex align-items-center' do %>
+              <%= link_to users_path, class: 'nav-link text-light d-flex align-items-center' do %>
                 <i class="fa-solid fa-users"></i>
                 <p class="mb-0">Users</p>
               <% end %>
             </li>
             <li class="nav-item">
-              <%= link_to books_path, class: 'nav-link text-dark d-flex align-items-center' do %>
+              <%= link_to books_path, class: 'nav-link text-light d-flex align-items-center' do %>
                 <i class="fa-solid fa-book-open"></i>
                 <p class="mb-0">Books</p>
               <% end %>
             </li>
             <li class="nav-item">
-              <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link text-dark d-flex align-items-center' do %>
+              <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link text-light d-flex align-items-center' do %>
                 <i class="fa-solid fa-right-from-bracket"></i>
                 <p class="mb-0">Log out</p>
               <% end %>
             </li>
             <% else %>
             <li class="nav-item">
-              <%= link_to root_path, class: 'nav-link text-dark d-flex align-items-center' do %>
+              <%= link_to root_path, class: 'nav-link text-light d-flex align-items-center' do %>
                 <i class="fa-solid fa-house"></i>
                 <p class="mb-0">Home</p>
               <% end %>
             </li>
             <li class="nav-item">
-              <%= link_to about_path, class: 'nav-link text-dark d-flex align-items-center' do %>
+              <%= link_to about_path, class: 'nav-link text-light d-flex align-items-center' do %>
                 <i class="fa-solid fa-link"></i>
                 <p class="mb-0">About</p>
               <% end %>
             </li>
             <li class="nav-item">
-              <%= link_to new_user_registration_path, class: 'nav-link text-dark d-flex align-items-center' do %>
+              <%= link_to new_user_registration_path, class: 'nav-link text-lightd-flex align-items-center' do %>
                 <i class="fa-solid fa-user-plus"></i>
                 <p class="mb-0">Sign up</p>
               <% end %>
             </li>
             <li class="nav-item">
-              <%= link_to  new_user_session_path, class: 'nav-link text-dark d-flex align-items-center' do %>
+              <%= link_to  new_user_session_path, class: 'nav-link text-light d-flex align-items-center' do %>
                 <i class="fa-solid fa-right-to-bracket"></i>
                 <p class="mb-0">Log in</p>
               <% end %>
