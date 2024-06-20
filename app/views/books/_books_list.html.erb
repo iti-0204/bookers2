@@ -6,7 +6,7 @@
       <th scope="col">Opinion</th>
       <th scope="col"></th>
       <th scope="col"></th>
-      
+
     </tr>
   </thead>
   <% books.each do |book| %>
@@ -25,16 +25,16 @@
         <td><%= book.body %></td>
         <% if book.favorited_by?(current_user) %>
           <td>
-            <%= link_to book_favorite_path(book), method: :delete do %>
-              ♥<%= book.favorites.count %> いいね
+            <%= link_to book_favorite_path(book), method: :delete, class: "text-danger" do%>
+              <i class="fa-solid fa-heart"></i><%= book.favorites.count %>
             <% end %>
-          </td>  
+          </td>
         <% else %>
           <td>
             <%= link_to book_favorite_path(book), method: :post do %>
-              ♡<%= book.favorites.count %> いいね
+              <i class="fa-solid fa-heart"></i><%= book.favorites.count %>
             <% end %>
-          </td>    
+          </td>
         <% end %>
       </tr>
     </tbody>
