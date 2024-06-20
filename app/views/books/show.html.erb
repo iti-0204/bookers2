@@ -51,21 +51,30 @@
                 <% end %>
               </td>
             <% end %>
+
+            <td>
+              コメント数：<%= @target_book.book_comments.count %>
+            </td>
           </tr>
         </tbody>
       </table>
       <div>
-        <p>コメント件数：<%= @target_book.book_comments.count %></p>
         <% @target_book.book_comments.each do |book_comment| %>
-          <p><%= image_tag book_comment.user.get_profile_image(100,100) %></p>
-          <%= book_comment.user.name %>
-          <%= book_comment.created_at.strftime('%Y/%m/%d') %><%= book_comment.comment %>
+          <div class="d-flex align-items-center">
+
+            <div>
+              <%= image_tag book_comment.user.get_profile_image(100,100) %><br>
+              <%= link_to user_path(book_comment.user.id) do %><%= book_comment.user.name %><% end %>
+            </div>
+            <%= book_comment.comment %>
+          </div>
+
         <% end %>
       </div>
       <div>
         <%= form_with model: [@target_book, @book_comment] do |f| %>
-          <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %>
-          <%= f.submit "送信する" %>
+          <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" , class: "w-100"%>
+          <%= f.submit "送信" %>
         <% end %>
       </div>
     </div>
